@@ -14,3 +14,5 @@ def add_shuju(shuju):
 
 new = 'liu'
 add_shuju(new)
+
+#push github
