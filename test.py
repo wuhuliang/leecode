@@ -1,39 +1,15 @@
 #--coding:utf-8--
 
-file_name = 'F:\python practice\\test_files\learning_python.txt'
+from name_function import get_full_name
 
-"""
-读取整个文件
-"""
-# with open(file_name) as f:
-#     text = f.read()
-#     print text
+print ("Enter 'q' at any time to quit.")
+while True:
+    first = raw_input("\nPlease give me a first name: ")
+    if first == 'q':
+        break
+    last = raw_input("\nPlease gibe me a last name: ")
+    if last == 'q':
+        break
 
-"""
-遍历文件对象
-"""
-# with open(file_name) as f:
-#     for hang in f:
-#         print hang.strip()
-
-"""
-存储在列表中
-"""
-# with open(file_name) as f:
-#     list = f.readlines()
-#     print list
-#
-# for l in list:
-#     print l.strip()
-
-"""
-修改文件内容
-"""
-with open(file_name) as f:
-    list = f.readlines()
-    print list
-
-
-for l in list:
-    h = l.strip().replace('Python','JAVA')
-    print h
+    formatted_name = get_full_name(first,last)
+    print ("\tNeatly formatted name: " + formatted_name + '.')
