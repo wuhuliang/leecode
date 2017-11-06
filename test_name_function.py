@@ -24,29 +24,41 @@
 """
 import unittest
 from name_function import AnonymousSurvey
+from name_function import Employee
 
-class TestAnonymousSurvey(unittest.TestCase):
+# class TestAnonymousSurvey(unittest.TestCase):
+#
+#     def setUp(self):
+#         """
+#         创建一个调查对象和一组答案，供使用的测试方法使用
+#         """
+#         question = "What language did you first learn?"
+#         self.my_survey = AnonymousSurvey(question)
+#         self.response_list = ['English','Spanish','Mandarin']
+#
+#     def test_store_single_response(self):
+#         """测试单个答案会被正确存储"""
+#         self.my_survey.store_response(self.response_list[0])   #调用 存储回答 方法，使responses属性，即该列表新增一个English数据项
+#         self.assertIn('English',self.my_survey.responses)  #检查值是否存在于列表中
+#
+#     def test_store_three_response(self):
+#         """测试三个答案会被正确存储"""
+#         for response in self.response_list:
+#             self.my_survey.store_response(response)  #将答案逐一存入responses属性列表
+#         for response in self.response_list:
+#             self.assertIn(response,self.my_survey.responses)
 
+class TestEmloyee(unittest.TestCase):
     def setUp(self):
-        """
-        创建一个调查对象和一组答案，供使用的测试方法使用
-        """
-        question = "What language did you first learn?"
-        self.my_survey = AnonymousSurvey(question)
-        self.response_list = ['English','Spanish','Mandarin']
+        self.wuhuliang = Employee('Wu','Huliang',5000)
 
-    def test_store_single_response(self):
-        """测试单个答案会被正确存储"""
-        self.my_survey.store_response(self.response_list[0])   #调用 存储回答 方法，使responses属性，即该列表新增一个English数据项
-        self.assertIn('English',self.my_survey.responses)  #检查值是否存在于列表中
+    def test_give_default_raise(self):
+        formatted = self.wuhuliang.give_raise()
+        self.assertEqual(10000,formatted)
 
-    def test_store_three_response(self):
-        """测试三个答案会被正确存储"""
-        for response in self.response_list:
-            self.my_survey.store_response(response)  #将答案逐一存入responses属性列表
-        for response in self.response_list:
-            self.assertIn(response,self.my_survey.responses)
-
+    def test_give_custom_raise(self):
+        formatted = self.wuhuliang.give_raise(10000)
+        self.assertEqual(15000,formatted)
 
 if __name__ == 'main':
     unittest.main

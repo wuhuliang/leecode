@@ -32,3 +32,13 @@ class AnonymousSurvey(object):
         print ("Survey results:")
         for r in self.responses:
             print('-' + r)
+
+class Employee(object):
+    def __init__(self,firstname,lastname,payment):
+        self.fn = firstname
+        self.ln = lastname
+        self.pay = payment
+
+    def give_raise(self,inpay=5000):
+        increase_pay = int(self.pay) + inpay
+        return increase_pay
